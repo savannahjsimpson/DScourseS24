@@ -1,0 +1,74 @@
+\documentclass{article}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\newcolumntype{d}{S[
+  input-open-uncertainty=,
+  input-close-uncertainty=,
+  parse-numbers = false,
+  table-align-text-pre=false,
+  table-align-text-post=false
+]}
+\title{Problem Set 8}
+\author{savannahjsimpson }
+\date{April 2 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{OLS Estimate of Beta }
+\begin{itemize}
+\item Using the OLS Estimate of Beta, the produced estimates are extremely close to the actual vector values. Both the produced and set values are included in the RScript for reference, but essentially, if the values were to be rounded to the estimates to nearest hundredth, then we would have the exact values for Beta. 
+\end{itemize}
+
+\section{L-BFGS vs. Nelder-Mead}
+\begin{itemize}
+\item Using the L-BFGS algorithm, the results were the same as the original OLS estimate and gradient descent. However, when using the Nelder-Mead method, the results were rather skewed. Some of the estimates were a few decimals off, while others were completely unrelated to the true value. I did receive some errors when trying to solve this, and perhaps my attmepts to correction lead to miscalculation. 
+\end{itemize}
+
+
+\section{Linear Regression OLS}
+\begin{itemize}
+\item The table.tex produces similar estimates to the first couple algorithms. When rounded they are almost exact to the  "ground truth" values used to orginally create the data. 
+\end{itemize}
+
+\begin{table}
+\centering
+\begin{tabular}[t]{lc}
+\toprule
+  & (1)\\
+\midrule
+X1 & \num{1.501}\\
+ & \vphantom{9} (\num{0.002})\\
+X2 & \num{-0.996}\\
+ & \vphantom{8} (\num{0.002})\\
+X3 & \num{-0.249}\\
+ & \vphantom{7} (\num{0.002})\\
+X4 & \num{0.747}\\
+ & \vphantom{6} (\num{0.002})\\
+X5 & \num{3.502}\\
+ & \vphantom{5} (\num{0.002})\\
+X6 & \num{-1.999}\\
+ & \vphantom{4} (\num{0.002})\\
+X7 & \num{0.501}\\
+ & \vphantom{3} (\num{0.002})\\
+X8 & \num{0.999}\\
+ & \vphantom{2} (\num{0.002})\\
+X9 & \num{1.253}\\
+ & \vphantom{1} (\num{0.002})\\
+X10 & \num{1.999}\\
+ & (\num{0.002})\\
+\midrule
+Num.Obs. & \num{100000}\\
+R2 & \num{0.991}\\
+R2 Adj. & \num{0.991}\\
+AIC & \num{144993.2}\\
+BIC & \num{145097.9}\\
+Log.Lik. & \num{-72485.615}\\
+RMSE & \num{0.50}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\end{document}
