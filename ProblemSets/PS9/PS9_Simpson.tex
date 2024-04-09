@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Problem Set 9} 
+\author{savannahjsimpson }
+\date{April 9 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Creating the New Recipe }
+\begin{itemize}
+\item The new dimensions are 404 X 75. 
+\item There are now 61 more X variables than in the original housig data. 
+\end{itemize}
+
+\section{LASSO Model}
+\begin{itemize}
+\item The optimal value of lambda is 0.002222996 . 
+\item The in-sample RSME is 1.958302. 
+\item The out of sample RSME is 1.950796. 
+\end{itemize}
+
+\section{Ridge Regression Model}
+\begin{itemize}
+\item The optimal value of lambda is now 0.03727594  . 
+\item The out of sample RSME is 1.949841. 
+\end{itemize}
+
+\section{Overview}
+\begin{itemize}
+\item If the dataset were to have had more columns than rows, I would not have been able to run the regression. In my process, I experienced many errors regarding non-numeric columns, and having an uneven number of data would further complicate calculations. 
+\item The ridge regression produced a higher value for lambda, meaning that it is generalizing the data more. The LASSO analysis is more specific, signalizing less bias overall. Given the similar RSME values, the variance for both models is relatively low. Looking deeper, I would utilize the RR model as it is more generalized and has a slightly lower RSME. 
+\end{itemize}
+
+\end{document}
