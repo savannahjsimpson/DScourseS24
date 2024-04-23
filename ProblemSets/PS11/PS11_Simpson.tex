@@ -1,0 +1,257 @@
+\documentclass[12pt,english]{article}
+\usepackage{mathptmx}
+
+\usepackage{color}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{darkblue}{RGB}{0.,0.,139.}
+
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{setspace}
+\doublespacing
+\usepackage{lipsum}
+\usepackage{indentfirst}
+\usepackage{booktabs} % For better horizontal rules
+\usepackage{threeparttable} % For table notes
+
+\usepackage[authoryear]{natbib}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage[flushleft]{threeparttable}
+\usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage{pdflscape}
+\usepackage[unicode=true,pdfusetitle,
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=true,pdfborder={0 0 0},backref=false,
+ colorlinks,citecolor=black,filecolor=black,
+ linkcolor=black,urlcolor=black]
+ {hyperref}
+\usepackage[all]{hypcap} % Links point to top of image, builds on hyperref
+\usepackage{breakurl}    % Allows urls to wrap, including hyperref
+
+\linespread{2}
+
+\begin{document}
+
+\begin{singlespace}
+\title{Further Examination of an Important Research Question}
+\end{singlespace}
+
+\author{Savannah J. Simpson\thanks{Department of Economics, University of Oklahoma.\
+E-mail~address:~\href{mailto:student.name@ou.edu}{savannahjsimpson@ou.edu}}}
+
+% \date{\today}
+\date{May 6, 2024}
+
+\maketitle
+
+\begin{abstract}
+\begin{singlespace}
+A short summary of what question the project answers, what methods are used, and any policy (or business) implications from the findings.
+\end{singlespace}
+
+\end{abstract}
+\vfill{}
+
+
+\pagebreak{}
+
+
+\section{Introduction}\label{sec:intro}
+\indent American industrialist, Henry Flagler, set the precedent for life in Palm Beach County with the completion of his Gilded Age mansion in 1902. Flagler, who is accredited with building the railroad that allowed the east coast of Florida to thrive, would be one of the first moguls to settle on Palm Beach Island, but certainly not the last. The Kennedy family would further bring light to life in Palm Beach with their lavish vacations and iconic style. The island has also been under controversy with the late Jeffery Epstein's infamous property being destructed, which is also just miles away from where Presidential Candidate Donald J. Trump resides at his Mar-A-Lago estate. Nonetheless, Palm Beach County has a rich culture of status and coastal living. 
+
+While PBC is coined by a luxury island lifestyle, there are over a million residents who work, live, and lead on average lives on the other side of the bridge. While tourism is arguably one of the largest industries, not every Palm Beach resident leads the type of life that is highlighted in popular culture. This has always been a high-demand destination for vacation homes, but Florida would be overwhelmed with an influx of new dwellers following the global pandemic. The abundance of outdoor activities and more-than-lax COVID-19 restrictions held by Florida administrators became increasingly attractive to Northerners as they were cooped up in their city apartments. The real estate market as a whole has become convoluted since the pandemic for many reasons. Lifestyle adjustments have caused people's preferences to shift, and the increased popularity in remote work now allows professionals to contribute from any location. 
+
+This societal phenomenon is particularly evident when assessing the housing market in Palm Beach County. Property values have exponentially risen across the United States, but have shown a prevalent skyrocket in southeast Florida. As discussed in The Palm Beach Post, county home prices have just hit a record high despite the expected summer real estate slow down. The average sale price of an existing, single family home in March of this year was \$1.19 million, showcasing a 32 percent increase from last year (Miller, 2024). Statistics such as these raise the question as to what is exactly going on behind the scenes of the real estate market. Is this a result of a volatile post-pandemic housing market, or is there something particular about this area? This research will analyze pre and post-pandemic sales prices in two separate PBC municipality neighborhoods and compare the increases across time periods and population increases. 
+
+
+\section{Literature Review}\label{sec:litreview}
+\begin{itemize}
+\item "Commercial real estate market at a crossroads: The impact of COVID-19 and the implications to future cities" (Wen, et. al, 2022). This first article assesses the response of commercial real estate markets in Florida to COVID-19. While my project focuses on residential properties, I did implement a similar approach to what is used in this study. They pulled market data from pre and post-COVID periods and compared findings. Results showed an initial halt in property purchased, but a quick return the following quarter along with an increase in rents. 
+\item "COVID-19 and housing market effects: Evidence from U.S. shutdown orders" (D'Lima, et. al, 2022). This article provides evidence to pricing implications on the housing market following COVID-19 shutdowns. The study utilized U.S. residential property transaction data and found that population density as well as unit density majorly affected prices. I would also like the utilize some population data in my analysis to test for density affects on housing demands and costs. 
+\item "Sea level rise, homeownership, and residential real estate markets in south Florida" (Fu and Nijman, 2020). This article provides additional research on a considerable issue that also impacts the Florida housing market: rising sea levels. While this is not exactly factored into my regression calculation, it is a harsh reality that Florida homeowners do have to face. Both of the studied municipalities, Jupiter and Boca Raton, are located along the Atlantic coastline. This study considers the risk tolerance of non-primary homeowners, and sheds light on the increase of volatile real estate markets in these areas. 
+\item "Did the COVID-19 pandemic crisis affect housing prices evenly in the U.S.?" (Li and Chuanrong, 2021). This study aims to understand the spatial patterns and  heterogeneity  of housing price changes in the U.S. following the pandemic. This capitalizes on the important observation that these patterns not only varied from rural to urban areas, but even one metropolitan area to another. Researchers found that these housing "hot spots" were commonly is smaller, affordable suburbs. It is logical that individuals were opting for more house for less money in places like Texas, but this is not the case in south Florida. Lesser- regulated COVID-19 policies, warmer weather, and irrational buying are explanatory factors in this phenomenon. 
+\end{itemize}
+
+
+
+\section{Data}\label{sec:data}
+The primary data source utilized in this research is sourced from the Palm Beach Property Appraiser website. The platform includes a Property Appraiser Public Access which freely provides information on nearly every existing property in the county. This includes ownership information, previous sale data, historical property tax values, appraisals, and physical property characteristics. For this specific project, I pulled sale data. This can be done by selecting a specific address and selecting a certain radius around it. For my analysis, I selected 2 separate neighborhoods, each in different parts of the county: Jupiter and Boca Raton. These two municipalities are arguably the most desirable in the county and state of Florida overall. Each of these cities house popular planned communities. Abacoa, Jupiter and Boca Del Mar, Boca Raton are comparable master-planned residential communities. While many exteriror factors can affect property values over time, these type of subdivisions are the most likely to remain stagnant in price. This is because the zoned schools and nearby amenities are predetermined and likely will remain unchanged, even if the surrounding area grows. While the neighborhoods are similar, Jupiter is the northernmost and Boca is the southernmost city encompassed by Palm Beach County. I pulled neighborhood sales from both neighborhoods from a pre-COVID and post-COVID date range. Specifically, sales data from 2016-2019, and 2021-2024. The raw csv from from the PBPA included the following variables: parcel control number (PCN), address, city, lot size, air conditioned square feet, total square feet, year built, bedrooms, full bathrooms, half bathrooms, sale date, sale price, and description (single family or townhouse). For the purpose of this analysis, I removed the PCN as the code did was not significant since I could differentiate entries by address. I am using total square footage instead of the air conditioned portions, and am only considering full bathroom count for simplicity. The year built is also not a major factor as the neighborhoods were constructed within a specified time period and home age did not seem to have a significant effect on home price. 
+
+
+
+\section{Empirical Methods}\label{sec:methods}
+While my analysis consists of a number of different approaches, the primary empirical model can be depicted in the following equation:
+\begin{equation}
+\label{eq:1}
+Y_i = \beta_{0} + \beta_{1}Lot.Size_i + \beta_{2}Total.SQFT_i + \beta_{3}Bed_i + \beta_{4}Full.Bath_i + \beta_{5}X_i + \varepsilon_i
+\end{equation}
+
+where $Y$ is a continuous outcome variable for the sale price of property $i$ within the specified time period, and $Lot.Size_i, Total.SQFT_i, Bed_i, and Full.Bath_i$ are characteristics of property $i$.  
+The coefficients $\beta_{1}$, $\beta_{2}$, $\beta_{3}$, and $\beta_{4}$ are the parameters of interest, as they represent the impact of property characteristics on the sale price.
+$\beta_{5}$ is the coefficient for the additional characteristics ($X_i$) of property $i$.The error term $\varepsilon_i$ captures the unexplained variation in the sale price for property $i$.
+
+This regression equation focuses on analyzing the impact of property characteristics and additional characteristics on the sale price of properties within each dataset, within different time periods. This equation will be applied separately to each dataset (Jupiter pre-COVID, Jupiter post-COVID, Boca pre-COVID, and Boca post-COVID) to compare the coefficients and assess the differences in the relationship between property characteristics and sale prices across the different datasets. I will also be pulling R squared values as well as the root-mean-squared deviations for additional analysis. 
+
+\section{Research Findings}\label{sec:results}
+\begin{itemize}
+    \item I have gone ahead and run my regressions in R, and the valued results are included in my R script. I am working on compiling these into a figure to include in the write up, but am having some set backs. I am trying to compile it in R but want to follow a similar structure to the figure included in this example so I am keeping it in here for now.  Imagine I have an awesome table with all of the intercepts as well as a great written analysis of them. 
+\end{itemize}
+
+
+\section{Conclusion}\label{sec:conclusion}
+\begin{itemize}
+    \item *See Section 5: Research Findings 
+    \item Basically planning to sum up my research findings and paint the bigger picture as told by these numbers. 
+    \item My results are not going to be Earth shattering - we know that prices are increasing over time and previous literature alludes to some of the reasons why. However, the goal of this study was specifically to see by how much, and how these increments altered over the two time periods. 
+    \item Also planning to discuss potential issues with my research?? Specifically the fact that this only is representative of certain areas, and cannot speak for every subdivision in the county as a whole. There is room for further research -specifically repeating a similar analysis for the other municipalities in PBC to have more data. 
+\end{itemize}
+\vfill
+\pagebreak{}
+\begin{spacing}{1.0}
+\bibliographystyle{jpe}
+\bibliography{PS11_Simpson}
+\addcontentsline{toc}{section}{References}
+\end{spacing}
+
+\vfill
+\pagebreak{}
+\clearpage
+
+%========================================
+% FIGURES AND TABLES 
+%========================================
+\section*{Figures and Tables}\label{sec:figTables}
+\addcontentsline{toc}{section}{Figures and Tables}
+%----------------------------------------
+% Figure 1
+%----------------------------------------
+\begin{figure}[ht]
+\centering
+\bigskip{}
+\includegraphics[width=.9\linewidth]{fig1.eps}
+\caption{Figure caption goes here}
+\label{fig:fig1}
+\end{figure}
+
+%----------------------------------------
+% Table 1
+%----------------------------------------
+
+\begin{table}[h]
+\centering
+\caption{Regression Analysis Results}
+\begin{tabular}{lrrrr}
+\toprule
+Model & Adjusted R-squared & RMSE & Lot Size Coefficient & Total SQFT Coefficient \\
+\midrule
+Jupiter Pre-COVID & 0.58 & 211905.10 & 1962399.52 & 98.57 \\
+Jupiter Post-COVID & 0.77 & 251971.40 & 2223346.00 & 232.86 \\
+Boca Pre-COVID & 0.76 & 71588.28 & 419114.48 & 98.51 \\
+Boca Post-COVID & 0.72 & 132293.40 & 936695.48 & 152.82 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\begin{table}[htbp]
+  \centering
+  \begin{threeparttable}
+    \caption{Summary Statistics of Variables of Interest}
+    \label{tab:summary}
+    \begin{tabular}{lrrrr}
+      \toprule
+      & Mean & Std. Dev. & Min & Max \\
+      \midrule
+      \multicolumn{5}{l}{\textbf{Panel A: Summary Statistics for Variables of Interest}} \\
+      Outcome variable 1 & 4.127 & 1.709 & 0.000 & 8.516 \\
+      Outcome variable 2 & 1.293 & 0.648 & 0.000 & 0.216 \\
+      Policy variable & 0.685 & 0.464 & 0.000 & 1.000 \\
+      Control variable 1 & 0.451 & 0.497 & 0.000 & 1.000 \\
+      Control variable 2 & 0.322 & 0.467 & 0.000 & 1.000 \\
+      \midrule
+      \multicolumn{5}{l}{\textbf{Panel B: Sample Means of Outcome Variables for Subgroups}} \\
+      & Group 1 & Group 2 & Group 3 & Group 4 \\
+      \cmidrule(lr){2-5}
+      Outcome variable 1 & 1.782 & 2.181 & 3.749 & 4.127 \\
+      Outcome variable 2 & 0.824 & 0.971 & 1.215 & 1.693 \\
+      N & 25,796 & 75,879 & 37,157 & 33,839 \\
+      \bottomrule
+    \end{tabular}
+    \begin{tablenotes}
+      \small
+      \item Notes: Put any notes about the table here. Sample size for all variables in Panel A is N = 172, 671.
+    \end{tablenotes}
+  \end{threeparttable}
+\end{table}
+
+\end{document}
+
+
+
+
+
+
+
+
+\label{tab:descriptives} 
+\centering
+\begin{threeparttable}
+\begin{tabular}{lcccc}
+&&&&\\
+\multicolumn{5}{l}{\emph{Panel A: Summary Statistics for Variables of Interest}}\\
+\toprule
+                                                        & Mean  & Std. Dev. & Min   & Max   \\
+\midrule
+Outcome variable 1                                      & 4.127 & 1.709     & 0.000 & 8.516 \\
+Outcome variable 2                                      & 1.293 & 0.648     & 0.000 & 0.216 \\
+Policy variable                                         & 0.685 & 0.464     & 0.000 & 1.000 \\
+Control variable 1                                      & 0.451 & 0.497     & 0.000 & 1.000 \\
+Control variable 2                                      & 0.322 & 0.467     & 0.000 & 1.000 \\
+&&&&\\
+\multicolumn{5}{l}{\emph{Panel B: Sample Means of Outcome Variables for Subgroups}}\\
+\midrule
+                                                        & Group 1 & Group 2 & Group 3 & Group 4 \\
+\midrule
+Outcome variable 1                                      & 1.782  & 2.181  & 3.749  & 4.127  \\
+Outcome variable 2                                      & 0.824  & 0.971  & 1.215  & 1.693  \\
+\midrule
+$N$                                                     & 25,796 & 75,879 & 37,157 & 33,839 \\
+\bottomrule
+\end{tabular}
+\footnotesize Notes: Put any notes about the table here. Sample size for all variables in Panel A is $N=172,671$.
+\end{threeparttable}
+\end{table}
+
+
+%----------------------------------------
+% Table 2
+%----------------------------------------
+\begin{table}[ht]
+\caption{Empirical estimates of parameter of interest}
+\label{tab:estimates} 
+\centering
+\begin{threeparttable}
+\begin{tabular}{lcc}
+\toprule
+                            & Few Controls    & Many Controls \\
+\midrule
+Variable of interest        & -1.977***       & -0.536**    \\
+                            & (0.219)         & (0.214)     \\
+Individual characteristics  & $\checkmark$    & $\checkmark$\\
+Firm characteristics        &                 & $\checkmark$\\
+Location dummies            &                 & $\checkmark$\\
+\midrule
+$N$                         & 172,671         & 172,671      \\
+\bottomrule
+\end{tabular}
+\footnotesize Notes: Table notes here. Standard errors in parentheses. ***Significantly different from zero at the 1\% level; **Significantly different from zero at the 5\% level.
+\end{threeparttable}
+\end{table}
+
+
+\end{document}
